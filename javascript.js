@@ -1,10 +1,13 @@
+var now = moment();
+var currentDate = now.format("MMM Do YYYY");
+
+// Set date in Jumbotron
+$("#currentDay").text("Today's Date: " + currentDate);
+
+
 $(".saveBtn").click(function () {
-    // console.log($(this).attr('data-btn-hr'));
     var index = $(this).attr('data-btn-hr');
-    // console.log($('.description[data-text-hr=' + index + ']'));
     var textArea = $('.description[data-text-hr=' + index + ']');
-    // console.log(textArea.value)
-    // var event = textArea[0].value;
     var event2 = $(this).siblings('.description').val();
     var hour = $(this).parent().attr('id');
     console.log('clicked')
@@ -15,15 +18,13 @@ $(".saveBtn").click(function () {
     var text = $(".form-control").val()
     localStorage.setItem(hour, event2);
     var last = localStorage.getItem("key");
-    console.log(last)
-
-
+    // console.log(last)
 })
 
 var time = moment().hour();
 
 function updateStyling() {
-    console.log(time);
+    // console.log(time);
     // iterate through the time blocks
     // grab the hour id
     // convert hour id to an integer
